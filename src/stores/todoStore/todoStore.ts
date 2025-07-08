@@ -26,6 +26,7 @@ export const useTodoStore = defineStore('todoStore', () => {
   const createTodos = async (task: ApiTodo) => {
     isCreating.value = true;
     try {
+      await new Promise((resolve) => setTimeout(resolve, 500));
       const newTodo = {
         id: crypto.randomUUID(),
         task: task.task,
@@ -37,9 +38,11 @@ export const useTodoStore = defineStore('todoStore', () => {
     }
   };
 
+
   const fetchTodos = async () => {
     isFetching.value = true;
     try {
+      await new Promise((resolve) => setTimeout(resolve, 500));
       loadLocalStorage();
     } finally {
       isFetching.value = false;

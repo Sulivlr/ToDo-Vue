@@ -1,7 +1,7 @@
-<template>
-  <span class="spinner"></span>
-</template>
-
 <script setup lang="ts">
-import '../Spinner/spinnerStyle/style.css';
+
 </script>
+
+<template>
+  <span class="button-spinner" aria-label="loading"></span>
+</template>

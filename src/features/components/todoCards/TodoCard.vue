@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import '../todoCards/cardStyle/style.css'
-import {useTodoStore} from "../../../stores/todoStore/todoStore.ts";
-import {computed, onMounted} from "vue";
-import Spinner from "../Spinner/Spinner.vue";
+import { useTodoStore } from "../../../stores/todoStore/todoStore.ts";
+import { computed, onMounted } from "vue";
+import Spinner from '../Spinner/Spinner.vue'
 
 const store = useTodoStore();
 const isFetching = computed(() => store.isFetching);
@@ -17,8 +17,8 @@ onMounted(() => {
   <div v-if="isFetching">
     <Spinner />
   </div>
-  <div v-else>
-    <div v-for="todo in todos" :key="todo.id" :class="{'comlited' : todo.isDone}" class="todo-card">
+  <div v-else class="todo-container">
+    <div v-for="todo in todos" :key="todo.id" :class="{'completed' : todo.isDone}" class="todo-card">
       <div class="todo-content">
         <h3 class="todo-title" :class="{'completed' : todo.isDone}">{{todo.task}}</h3>
         <div class="todo-actions">
@@ -29,7 +29,3 @@ onMounted(() => {
     </div>
   </div>
 </template>
-
-<style scoped>
-
-</style>
