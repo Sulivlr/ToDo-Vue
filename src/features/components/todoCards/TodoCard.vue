@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import '../todoCards/cardStyle/style.css'
+import '../todoCards/cardStyle/style.css'
 </script>
 
 <template>

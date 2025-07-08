@@ -1,16 +1,14 @@
 <script setup lang="ts">
 import AppBar from "./UI/AppBar/AppBar.vue";
-import CreateInput from "./features/input/CreateInput.vue";
-import TodoCard from "./features/todoCards/TodoCard.vue";
+import Todos from "./features/components/Todos.vue";
 </script>
 
 <template>
   <header>
-    <AppBar />
+    <AppBar/>
   </header>
   <main>
-    <CreateInput />
-    <TodoCard />
+    <Todos/>
   </main>
 </template>
 
