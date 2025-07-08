@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import AppBar from "./UI/AppBar/AppBar.vue";
+import CreateInput from "./features/input/CreateInput.vue";
 </script>
 
 <template>
@@ -7,7 +8,7 @@ import AppBar from "./UI/AppBar/AppBar.vue";
     <AppBar />
   </header>
   <main>
-    Main input
+    <CreateInput />
   </main>
 </template>
 
