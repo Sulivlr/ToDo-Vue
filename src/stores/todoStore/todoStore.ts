@@ -20,7 +20,8 @@ export const useTodoStore = defineStore('todoStore', () => {
 
   watch(items, (newValue) => {
     localStorage.setItem('todos', JSON.stringify(newValue));
-  });
+  }, {deep: true},
+  );
 
   const createTodos = async (task: ApiTodo) => {
     isCreating.value = true;
@@ -34,6 +35,15 @@ export const useTodoStore = defineStore('todoStore', () => {
     } finally {
       isCreating.value = false;
     }
+  };
+
+  const fetchTodos = async () => {
+    isFetching.value = true;
+    try {
+      loadLocalStorage();
+    } finally {
+      isFetching.value = false;
+    }
   }
 
   loadLocalStorage();
@@ -42,6 +52,7 @@ export const useTodoStore = defineStore('todoStore', () => {
     isFetching,
     isCreating,
     createTodos,
+    fetchTodos,
   }
 });
 
