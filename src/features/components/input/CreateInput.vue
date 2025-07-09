@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import '../input/inputStyle/style.css';
-import { computed, ref } from "vue";
-import { useTodoStore } from "../../../stores/todoStore/todoStore.ts";
+import {computed, ref} from "vue";
+import {useTodoStore} from "../../../stores/todoStore/todoStore.ts";
 import ButtonSpinner from "../Spinner/ButtonSpinner.vue";
 
 const store = useTodoStore();
@@ -14,6 +14,7 @@ const onSubmit = async (event: Event) => {
   await store.createTodos({
     task: task.value,
     isDone: false,
+    createdAt: new Date().toISOString(),
   });
   task.value = '';
   await store.fetchTodos()
@@ -32,7 +33,7 @@ const onSubmit = async (event: Event) => {
       />
       <button type="submit" :disabled="isCreating" class="create-button">
         <template v-if="isCreating">
-          <ButtonSpinner />
+          <ButtonSpinner/>
         </template>
         <template v-else>
           Create

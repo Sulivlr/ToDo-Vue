@@ -6,8 +6,12 @@ export interface ApiTodo {
 
 export interface Todo extends ApiTodo {
   id: string;
+  weather: Weather;
 }
 
-export interface ApiTodos {
-  [id: string]: ApiTodo;
+export interface Weather {
+  id: string;
+  main: {
+    temp: number;
+  }
 }

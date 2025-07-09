@@ -6,6 +6,9 @@
 }
 
 .todo-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background: #1e1e2f;
   color: #eee;
   border: 1px solid #444;
@@ -60,3 +63,11 @@
   font-style: italic;
 }
 
+.todo-weather {
+  font-size: 14px;
+  color: #4478aa;
+  margin: 4px -10px 8px;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-style: italic;
+}
