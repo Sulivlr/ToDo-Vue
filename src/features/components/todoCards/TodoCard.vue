@@ -19,6 +19,11 @@ const onDelete = async (id: string) => {
   await store.fetchTodos();
 }
 
+const formatDate = (iso: string) => {
+  const date = new Date(iso);
+  return date.toLocaleString();
+};
+
 </script>
 
 <template>
@@ -29,6 +34,9 @@ const onDelete = async (id: string) => {
     <div v-for="todo in todos" :key="todo.id" class="todo-card">
       <div class="todo-content">
         <h3 class="todo-title">{{ todo.task }}</h3>
+        <p class="todo-time">
+          Выполнено: {{ formatDate(todo.createdAt) }}
+        </p>
         <div class="todo-actions">
           <input type="checkbox" class="todo-checkbox" :checked="todo.isDone"
                  @change="onStatusChange(todo.id)"/>

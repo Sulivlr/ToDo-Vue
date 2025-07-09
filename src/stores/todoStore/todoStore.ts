@@ -32,6 +32,7 @@ export const useTodoStore = defineStore('todoStore', () => {
         id: crypto.randomUUID(),
         task: task.task,
         isDone: false,
+        createdAt: new Date().toISOString(),
       };
       items.value.push(newTodo);
     } finally {
