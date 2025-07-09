@@ -16,7 +16,7 @@ export const useTodoStore = defineStore('todoStore', () => {
     } catch (error) {
       console.error(error);
     }
-  }
+  };
 
   watch(items, (newValue) => {
     localStorage.setItem('todos', JSON.stringify(newValue));
@@ -47,7 +47,20 @@ export const useTodoStore = defineStore('todoStore', () => {
     } finally {
       isFetching.value = false;
     }
-  }
+  };
+
+  const changeTodoStatus = async (id: string) => {
+    isFetching.value = true;
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 300));
+      const todoIsDone = items.value.find((item) => item.id === id);
+      if (todoIsDone) {
+        todoIsDone.isDone = !todoIsDone.isDone;
+      }
+    } finally {
+      isFetching.value = false;
+    }
+  };
 
   loadLocalStorage();
   return {
@@ -56,6 +69,7 @@ export const useTodoStore = defineStore('todoStore', () => {
     isCreating,
     createTodos,
     fetchTodos,
+    changeTodoStatus,
   }
 });
 

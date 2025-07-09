@@ -15,8 +15,8 @@ const onSubmit = async (event: Event) => {
     task: task.value,
     isDone: false,
   });
-
   task.value = '';
+  await store.fetchTodos()
 };
 </script>
 

@@ -1,16 +1,17 @@
 <script setup lang="ts">
 import '../todoCards/cardStyle/style.css'
 import { useTodoStore } from "../../../stores/todoStore/todoStore.ts";
-import { computed, onMounted } from "vue";
+import { computed } from "vue";
 import Spinner from '../Spinner/Spinner.vue'
 
 const store = useTodoStore();
 const isFetching = computed(() => store.isFetching);
 const todos = computed(() => store.items);
 
-onMounted(() => {
-  store.fetchTodos();
-})
+const onStatusChange = (id: string) => {
+  store.changeTodoStatus(id);
+}
+
 </script>
 
 <template>
@@ -18,11 +19,11 @@ onMounted(() => {
     <Spinner />
   </div>
   <div v-else class="todo-container">
-    <div v-for="todo in todos" :key="todo.id" :class="{'completed' : todo.isDone}" class="todo-card">
+    <div v-for="todo in todos" :key="todo.id" class="todo-card">
       <div class="todo-content">
-        <h3 class="todo-title" :class="{'completed' : todo.isDone}">{{todo.task}}</h3>
+        <h3 class="todo-title">{{todo.task}}</h3>
         <div class="todo-actions">
-          <input type="checkbox" class="todo-checkbox"/>
+          <input type="checkbox" class="todo-checkbox" :checked="todo.isDone" @change="onStatusChange(todo.id)"/>
           <button class="todo-delete-button">Delete</button>
         </div>
       </div>
