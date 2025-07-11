@@ -10,7 +10,6 @@ const task = ref('');
 
 const onSubmit = async (event: Event) => {
   event.preventDefault();
-
   await store.createTodos({
     task: task.value,
     isDone: false,

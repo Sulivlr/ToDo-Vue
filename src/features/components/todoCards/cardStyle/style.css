@@ -10,7 +10,6 @@
   justify-content: space-between;
   align-items: center;
   background: #1e1e2f;
-  color: #eee;
   border: 1px solid #444;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   border-radius: 15px;
@@ -65,9 +64,17 @@
 
 .todo-weather {
   font-size: 14px;
-  color: #4478aa;
+  color: #000000;
   margin: 4px -10px 8px;
   padding: 6px 10px;
   border-radius: 4px;
   font-style: italic;
+}
+
+.todo-card.done {
+  background-color: #1c8e1d;
+  color: white;
+  padding: 16px;
+  border-radius: 10px;
+  margin-bottom: 15px;
 }
