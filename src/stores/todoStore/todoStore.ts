@@ -10,6 +10,7 @@ export const useTodoStore = defineStore('todoStore', () => {
   const isFetching = ref(false);
   const isCreating = ref(false);
   const isDeleting = ref<string | null>(null);
+  const isEditing = ref<string | null>(null);
 
   const loadLocalStorage = () => {
     try {
@@ -100,6 +101,19 @@ export const useTodoStore = defineStore('todoStore', () => {
     }
   };
 
+  const editTodo = async (id: string, updatedTask: string) => {
+    isEditing.value = id;
+    try {
+      await new Promise(resolve => setTimeout(resolve, 300));
+      const todo = items.value.find((item) => item.id === id);
+      if (todo) {
+        todo.task = updatedTask;
+      }
+    } finally {
+      isEditing.value = null;
+    }
+  };
+
   loadLocalStorage();
 
   return {
@@ -108,9 +122,11 @@ export const useTodoStore = defineStore('todoStore', () => {
     isFetching,
     isCreating,
     isDeleting,
+    isEditing,
     createTodos,
     fetchTodos,
     changeTodoStatus,
     deleteTodos,
+    editTodo,
   }
 });

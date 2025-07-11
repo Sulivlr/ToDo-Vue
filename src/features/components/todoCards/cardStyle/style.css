@@ -36,13 +36,13 @@
 .todo-actions {
   display: flex;
   align-items: center;
-  gap: 20px;
 }
 
 .todo-checkbox {
-  width: 25px;
+  width: 39px;
   height: 25px;
   cursor: pointer;
+  margin-right: 10px;
 }
 
 .todo-delete-button {
@@ -60,12 +60,13 @@
   color: #fff;
   margin-top: 10px;
   font-style: italic;
+  margin-left: 60px;
 }
 
 .todo-weather {
   font-size: 14px;
   color: #000000;
-  margin: 4px -10px 8px;
+  margin: 4px 37px 8px;
   padding: 6px 10px;
   border-radius: 4px;
   font-style: italic;
@@ -77,4 +78,40 @@
   padding: 16px;
   border-radius: 10px;
   margin-bottom: 15px;
+}
+.todo-edit-button,
+.todo-save-button,
+.todo-cancel-button {
+  background-color: #2196f3;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  font-size: 17px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-right: 20px
+}
+
+.todo-save-button {
+  background-color: #4caf50;
+  margin-bottom: 9px;
+}
+
+.todo-edit-button:hover,
+.todo-save-button:hover,
+.todo-cancel-button:hover {
+  opacity: 0.9;
+}
+
+.edit-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.edit-buttons {
+  margin-right: -25px;
+  padding-left: 20px;
 }
